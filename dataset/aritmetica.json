@@ -1,0 +1,134 @@
+{
+    "familia": "aritmetica",
+    "descripcion": "Ejercicios que involucran operaciones matemáticas básicas.",
+    "ejercicios": [
+        {
+            "id": 1,
+            "enunciado": "Calcular la suma de N números ingresados por el usuario",
+            "familia": "aritmética",
+            "descripcion_familia": "Ejercicios que involucran operaciones matemáticas básicas y manejo de variables.",
+            "solucion_correcta_pseint": "Algoritmo SumarNumeros\n  Leer N\n  suma = 0\n  Para i desde 1 hasta N\n    Leer num\n    suma = suma + num\n  FinPara\n  Escribir suma\nFinAlgoritmo",
+            "reglas_abstractas": [
+                "Debe inicializar un acumulador (suma) en 0",
+                "Debe iterar exactamente N veces (usando Para o Mientras)",
+                "Debe leer y sumar cada número dentro del bucle",
+                "Debe mostrar el resultado final"
+            ],
+            "errores_comunes": [
+                {
+                    "codigo_incorrecto": "Algoritmo SumarNumeros\n  Leer N\n  suma = 0\n  Para i desde 1 hasta N\n    Leer num\n  FinPara\n  Escribir suma\nFinAlgoritmo",
+                    "error": "No se acumulan los valores leídos",
+                    "retroalimentacion": "❌ El código lee los números pero no los suma. Revisa si estás actualizando la variable 'suma' dentro del bucle."
+                },
+                {
+                    "codigo_incorrecto": "Algoritmo SumarNumeros\n  Leer N\n  Para i desde 1 hasta N\n    Leer num\n    suma = suma + num\n  FinPara\n  Escribir suma\nFinAlgoritmo",
+                    "error": "Variable 'suma' no inicializada",
+                    "retroalimentacion": "❌ La variable 'suma' debe iniciar en 0 antes del bucle. Sin esto, el resultado será incorrecto."
+                }
+            ],
+            "variantes": [
+                {
+                    "enunciado": "Sumar 3 números ingresados por el usuario",
+                    "solucion_correcta_pseint": "Algoritmo Sumar3\n  suma = 0\n  Para i desde 1 hasta 3\n    Leer num\n    suma = suma + num\n  FinPara\n  Escribir suma\nFinAlgoritmo"
+                },
+                {
+                    "enunciado": "Sumar una lista de números predefinidos",
+                    "solucion_correcta_pseint": "Algoritmo SumarLista\n  numeros = [2, 4, 6, 8]\n  suma = 0\n  Para i desde 0 hasta longitud(numeros) - 1\n    suma = suma + numeros[i]\n  FinPara\n  Escribir suma\nFinAlgoritmo"
+                }
+            ],
+            "dificultad": "básica",
+            "tags": [
+                "bucles",
+                "acumuladores",
+                "entrada_usuario"
+            ]
+        },
+        {
+            "id": 2,
+            "enunciado": "Calcular el promedio de N números ingresados por el usuario",
+            "familia": "aritmetica",
+            "solucion_correcta_pseint": "Algoritmo Promedio\n  Leer N\n  suma = 0\n  Para i desde 1 hasta N\n    Leer num\n    suma = suma + num\n  FinPara\n  promedio = suma / N\n  Escribir promedio\nFinAlgoritmo",
+            "reglas_abstractas": [
+                "inicializar_acumulador(suma)",
+                "iterar_N_veces",
+                "dividir_suma_entre_N"
+            ],
+            "errores_comunes": [
+                {
+                    "codigo_incorrecto": "Algoritmo Promedio\n  Leer N\n  suma = 0\n  Para i desde 1 hasta N\n    Leer num\n  FinPara\n  promedio = suma / N\n  Escribir promedio\nFinAlgoritmo",
+                    "error": "no_actualizar_acumulador",
+                    "retroalimentacion": "❌ Dentro del bucle, debes sumar cada número a 'suma'."
+                }
+            ],
+            "variantes": [
+                {
+                    "enunciado": "Calcular el promedio de 3 notas",
+                    "solucion_correcta_pseint": "Algoritmo PromedioNotas\n  suma = 0\n  Para i desde 1 hasta 3\n    Leer nota\n    suma = suma + nota\n  FinPara\n  promedio = suma / 3\n  Escribir promedio\nFinAlgoritmo"
+                }
+            ],
+            "dificultad": "básica",
+            "tags": [
+                "bucles",
+                "acumuladores"
+            ]
+        },
+        {
+            "id": 3,
+            "enunciado": "Elevar un número base a una potencia entera positiva",
+            "familia": "aritmetica",
+            "solucion_correcta_pseint": "Algoritmo Potencia\n  Leer base, exponente\n  resultado = 1\n  Para i desde 1 hasta exponente\n    resultado = resultado * base\n  FinPara\n  Escribir resultado\nFinAlgoritmo",
+            "reglas_abstractas": [
+                "inicializar_acumulador(resultado=1)",
+                "iterar_exponente_veces",
+                "multiplicar_base_acumulador"
+            ],
+            "errores_comunes": [
+                {
+                    "codigo_incorrecto": "Algoritmo Potencia\n  Leer base, exponente\n  resultado = 0\n  Para i desde 1 hasta exponente\n    resultado = resultado * base\n  FinPara\n  Escribir resultado\nFinAlgoritmo",
+                    "error": "acumulador_inicializado_en_0",
+                    "retroalimentacion": "❌ 'resultado' debe iniciar en 1 para multiplicaciones."
+                }
+            ],
+            "variantes": [
+                {
+                    "enunciado": "Calcular el cuadrado de un número",
+                    "solucion_correcta_pseint": "Algoritmo Cuadrado\n  Leer num\n  resultado = num * num\n  Escribir resultado\nFinAlgoritmo"
+                }
+            ],
+            "dificultad": "básica",
+            "tags": [
+                "bucles",
+                "multiplicacion"
+            ]
+        },
+        {
+            "id": 4,
+            "enunciado": "Calcular el MCD de dos números usando el algoritmo de Euclides",
+            "familia": "aritmetica",
+            "solucion_correcta_pseint": "Algoritmo MCD\n  Leer a, b\n  Mientras b <> 0 Hacer\n    temp = b\n    b = a % b\n    a = temp\n  FinMientras\n  Escribir a\nFinAlgoritmo",
+            "reglas_abstractas": [
+                "usar_algoritmo_iterativo",
+                "actualizar_variables_en_bucle",
+                "operador_modulo"
+            ],
+            "errores_comunes": [
+                {
+                    "codigo_incorrecto": "Algoritmo MCD\n  Leer a, b\n  Mientras a <> 0 Hacer\n    temp = a\n    a = b % a\n    b = temp\n  FinMientras\n  Escribir b\nFinAlgoritmo",
+                    "error": "condicion_incorrecta",
+                    "retroalimentacion": "❌ La condición debe ser 'Mientras b <> 0', no 'a <> 0'."
+                }
+            ],
+            "variantes": [
+                {
+                    "enunciado": "Calcular el MCD de tres números",
+                    "solucion_correcta_pseint": "Algoritmo MCDTres\n  Leer a, b, c\n  mcd_ab = MCD(a, b)\n  mcd_final = MCD(mcd_ab, c)\n  Escribir mcd_final\nFinAlgoritmo"
+                }
+            ],
+            "dificultad": "intermedia",
+            "tags": [
+                "euclides",
+                "modulo"
+            ]
+        }
+    ]
+}

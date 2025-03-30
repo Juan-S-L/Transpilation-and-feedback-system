@@ -1,0 +1,91 @@
+{
+    "familia": "funciones",
+    "descripcion": "Ejercicios que requieren definir y usar funciones/procedimientos para modularizar la solución.",
+    "ejercicios": [
+      {
+        "id": 1,
+        "enunciado": "Crear una función que calcule el área de un círculo dado su radio",
+        "solucion_correcta_pseint": "Algoritmo AreaCirculo\n  // Función principal\n  Leer radio\n  area = CalcularArea(radio)\n  Escribir area\nFinAlgoritmo\n\nFuncion resultado = CalcularArea(r)\n  resultado = 3.1416 * r * r\nFinFuncion",
+        "reglas_abstractas": [
+          "definir_funcion_con_parametros",
+          "llamar_funcion_desde_principal",
+          "usar_valor_retorno"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo AreaCirculo\n  Leer radio\n  Escribir 3.1416 * radio * radio\nFinAlgoritmo",
+            "error": "no_usa_funcion",
+            "retroalimentacion": "❌ El enunciado pedía usar una función. Debes definirla con 'Funcion' y llamarla después."
+          },
+          {
+            "codigo_incorrecto": "Algoritmo AreaCirculo\n  Leer radio\n  area = CalcularArea()\n  Escribir area\nFinAlgoritmo\n\nFuncion resultado = CalcularArea()\n  resultado = 3.1416 * radio * radio\nFinFuncion",
+            "error": "parametro_no_pasado",
+            "retroalimentacion": "❌ La función 'CalcularArea' debe recibir el radio como parámetro."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Crear una función que calcule el volumen de una esfera",
+            "solucion_correcta_pseint": "Algoritmo VolumenEsfera\n  Leer radio\n  volumen = CalcularVolumen(radio)\n  Escribir volumen\nFinAlgoritmo\n\nFuncion resultado = CalcularVolumen(r)\n  resultado = (4/3) * 3.1416 * r * r * r\nFinFuncion"
+          }
+        ],
+        "dificultad": "básica",
+        "tags": ["funciones", "retorno"]
+      },
+      {
+        "id": 2,
+        "enunciado": "Crear un procedimiento que imprima un rectángulo de asteriscos de ancho y alto dados",
+        "solucion_correcta_pseint": "Algoritmo RectanguloAsteriscos\n  Leer ancho, alto\n  ImprimirRectangulo(ancho, alto)\nFinAlgoritmo\n\nProcedimiento ImprimirRectangulo(a, h)\n  Para i desde 1 hasta h Hacer\n    Para j desde 1 hasta a Hacer\n      Escribir Sin Saltar \"*\"\n    FinPara\n    Escribir \"\"\n  FinPara\nFinProcedimiento",
+        "reglas_abstractas": [
+          "definir_procedimiento",
+          "usar_parametros",
+          "bucles_anidados"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo RectanguloAsteriscos\n  Leer ancho, alto\n  Para i desde 1 hasta alto Hacer\n    Para j desde 1 hasta ancho Hacer\n      Escribir Sin Saltar \"*\"\n    FinPara\n    Escribir \"\"\n  FinPara\nFinAlgoritmo",
+            "error": "no_modularizado",
+            "retroalimentacion": "❌ El código resuelve el problema, pero no sigue el requisito de modularización. Usa un procedimiento."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Crear un procedimiento que imprima un triángulo rectángulo de altura N",
+            "solucion_correcta_pseint": "Algoritmo TrianguloRectangulo\n  Leer N\n  ImprimirTriangulo(N)\nFinAlgoritmo\n\nProcedimiento ImprimirTriangulo(altura)\n  Para i desde 1 hasta altura Hacer\n    Para j desde 1 hasta i Hacer\n      Escribir Sin Saltar \"*\"\n    FinPara\n    Escribir \"\"\n  FinPara\nFinProcedimiento"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["procedimientos", "bucles_anidados"]
+      },
+      {
+        "id": 3,
+        "enunciado": "Crear una función que determine si un número es primo",
+        "solucion_correcta_pseint": "Algoritmo Primo\n  Leer num\n  Si EsPrimo(num) Entonces\n    Escribir \"Es primo\"\n  Sino\n    Escribir \"No es primo\"\n  FinSi\nFinAlgoritmo\n\nFuncion primo = EsPrimo(n)\n  primo = Verdadero\n  Si n <= 1 Entonces\n    primo = Falso\n  Sino\n    Para i desde 2 hasta n/2\n      Si n % i = 0 Entonces\n        primo = Falso\n      FinSi\n    FinPara\n  FinSi\nFinFuncion",
+        "reglas_abstractas": [
+          "funcion_booleana",
+          "optimizar_iteraciones",
+          "manejar_casos_especiales"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo Primo\n  Leer num\n  primo = Verdadero\n  Para i desde 2 hasta num - 1\n    Si num % i = 0 Entonces\n      primo = Falso\n    FinSi\n  FinPara\n  Si primo Entonces\n    Escribir \"Es primo\"\n  Sino\n    Escribir \"No es primo\"\n  FinSi\nFinAlgoritmo",
+            "error": "no_modularizado",
+            "retroalimentacion": "❌ El código verifica si es primo, pero debe encapsularse en una función llamada 'EsPrimo'."
+          },
+          {
+            "codigo_incorrecto": "Funcion primo = EsPrimo(n)\n  Para i desde 2 hasta n/2\n    Si n % i = 0 Entonces\n      Retornar Falso\n    FinSi\n  FinPara\n  Retornar Verdadero\nFinFuncion",
+            "error": "caso_1_omitido",
+            "retroalimentacion": "❌ La función debe manejar el caso donde `n <= 1` (no es primo)."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Crear una función que devuelva el n-ésimo número primo",
+            "solucion_correcta_pseint": "Algoritmo NesimoPrimo\n  Leer N\n  contador = 0\n  num = 2\n  Mientras contador < N Hacer\n    Si EsPrimo(num) Entonces\n      contador = contador + 1\n    FinSi\n    num = num + 1\n  FinMientras\n  Escribir num - 1\nFinAlgoritmo\n\n// Reutilizar la función EsPrimo del ejercicio anterior"
+          }
+        ],
+        "dificultad": "avanzada",
+        "tags": ["optimizacion", "booleanos"]
+      }
+    ]
+  }

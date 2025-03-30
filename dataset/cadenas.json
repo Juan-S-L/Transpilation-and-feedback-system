@@ -1,0 +1,79 @@
+{
+    "familia": "cadenas",
+    "descripcion": "Ejercicios que involucran manipulación de cadenas de texto (leer, recorrer, modificar, comparar).",
+    "ejercicios": [
+      {
+        "id": 1,
+        "enunciado": "Contar las vocales en una cadena ingresada por el usuario",
+        "solucion_correcta_pseint": "Algoritmo ContarVocales\n  Leer cadena\n  contador = 0\n  Para i desde 0 hasta longitud(cadena) - 1 Hacer\n    caracter = minusculas(subcadena(cadena, i, i))\n    Si caracter = 'a' O caracter = 'e' O caracter = 'i' O caracter = 'o' O caracter = 'u' Entonces\n      contador = contador + 1\n    FinSi\n  FinPara\n  Escribir contador\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "recorrer_cadena",
+          "convertir_minusculas",
+          "comparar_caracteres"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo ContarVocales\n  Leer cadena\n  contador = 0\n  Para i desde 1 hasta longitud(cadena) Hacer\n    Si subcadena(cadena, i, i) = 'a' Entonces\n      contador = contador + 1\n    FinSi\n  FinPara\n  Escribir contador\nFinAlgoritmo",
+            "error": "indices_invalidos_y_vocales_incompletas",
+            "retroalimentacion": "❌ Los índices en PSeInt comienzan en 0. Además, debes comparar todas las vocales, no solo 'a'."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Contar las consonantes en una cadena",
+            "solucion_correcta_pseint": "Algoritmo ContarConsonantes\n  Leer cadena\n  contador = 0\n  Para i desde 0 hasta longitud(cadena) - 1 Hacer\n    caracter = minusculas(subcadena(cadena, i, i))\n    Si NO (caracter = 'a' O caracter = 'e' O caracter = 'i' O caracter = 'o' O caracter = 'u') Y caracter >= 'a' Y caracter <= 'z' Entonces\n      contador = contador + 1\n    FinSi\n  FinPara\n  Escribir contador\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "básica",
+        "tags": ["bucles", "comparacion_caracteres"]
+      },
+      {
+        "id": 2,
+        "enunciado": "Invertir una cadena ingresada por el usuario",
+        "solucion_correcta_pseint": "Algoritmo InvertirCadena\n  Leer cadena\n  cadena_invertida = \"\"\n  Para i desde longitud(cadena) - 1 hasta 0 Con Paso -1 Hacer\n    cadena_invertida = concatenar(cadena_invertida, subcadena(cadena, i, i))\n  FinPara\n  Escribir cadena_invertida\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "concatenar_caracteres",
+          "recorrer_cadena_inversamente"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo InvertirCadena\n  Leer cadena\n  cadena_invertida = \"\"\n  Para i desde 0 hasta longitud(cadena) - 1 Hacer\n    cadena_invertida = subcadena(cadena, i, i) + cadena_invertida\n  FinPara\n  Escribir cadena_invertida\nFinAlgoritmo",
+            "error": "concatenacion_ineficiente",
+            "retroalimentacion": "❌ Funciona, pero en PSeInt usa `concatenar()` para mejor legibilidad. Además, revisa el orden de los índices."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Verificar si una cadena es palíndromo",
+            "solucion_correcta_pseint": "Algoritmo Palindromo\n  Leer cadena\n  es_palindromo = verdadero\n  Para i desde 0 hasta trunc(longitud(cadena)/2) Hacer\n    Si subcadena(cadena, i, i) <> subcadena(cadena, longitud(cadena)-1-i, longitud(cadena)-1-i) Entonces\n      es_palindromo = falso\n    FinSi\n  FinPara\n  Escribir es_palindromo\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["indices", "concatenacion"]
+      },
+      {
+        "id": 3,
+        "enunciado": "Reemplazar todas las vocales de una cadena por un carácter específico",
+        "solucion_correcta_pseint": "Algoritmo ReemplazarVocales\n  Leer cadena, caracter\n  nueva_cadena = \"\"\n  Para i desde 0 hasta longitud(cadena) - 1 Hacer\n    letra = subcadena(cadena, i, i)\n    Si minusculas(letra) = 'a' O minusculas(letra) = 'e' O minusculas(letra) = 'i' O minusculas(letra) = 'o' O minusculas(letra) = 'u' Entonces\n      nueva_cadena = concatenar(nueva_cadena, caracter)\n    Sino\n      nueva_cadena = concatenar(nueva_cadena, letra)\n    FinSi\n  FinPara\n  Escribir nueva_cadena\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "identificar_vocales",
+          "construir_cadena_nueva"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo ReemplazarVocales\n  Leer cadena, caracter\n  Para i desde 0 hasta longitud(cadena) - 1 Hacer\n    Si subcadena(cadena, i, i) = 'a' Entonces\n      cadena = subcadena(cadena, 0, i-1) + caracter + subcadena(cadena, i+1, longitud(cadena)-1)\n    FinSi\n  FinPara\n  Escribir cadena\nFinAlgoritmo",
+            "error": "modificacion_cadena_directa",
+            "retroalimentacion": "❌ En PSeInt, las cadenas son inmutables. Usa una variable auxiliar (`nueva_cadena`) para construir el resultado."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Reemplazar espacios por guiones bajos",
+            "solucion_correcta_pseint": "Algoritmo ReemplazarEspacios\n  Leer cadena\n  nueva_cadena = \"\"\n  Para i desde 0 hasta longitud(cadena) - 1 Hacer\n    Si subcadena(cadena, i, i) = \" \" Entonces\n      nueva_cadena = concatenar(nueva_cadena, \"_\")\n    Sino\n      nueva_cadena = concatenar(nueva_cadena, subcadena(cadena, i, i))\n    FinSi\n  FinPara\n  Escribir nueva_cadena\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["modificacion_cadenas", "vocales"]
+      }
+    ]
+  }

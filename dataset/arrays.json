@@ -1,0 +1,180 @@
+{
+    "familia": "arrays",
+    "descripcion": "Ejercicios que requieren el uso de arreglos (vectores o matrices) para resolver problemas.",
+    "ejercicios": [
+      {
+        "id": 1,
+        "enunciado": "Calcular el promedio de los elementos de un arreglo de números",
+        "solucion_correcta_pseint": "Algoritmo PromedioArreglo\n  Dimension numeros[5]\n  suma = 0\n  // Asumimos que el arreglo ya está lleno\n  Para i desde 0 hasta 4 Hacer\n    suma = suma + numeros[i]\n  FinPara\n  promedio = suma / 5\n  Escribir promedio\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "inicializar_acumulador",
+          "iterar_arreglo",
+          "calcular_promedio"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo PromedioArreglo\n  Dimension numeros[5]\n  suma = 0\n  Para i desde 1 hasta 5 Hacer\n    suma = suma + numeros[i]\n  FinPara\n  promedio = suma / 5\n  Escribir promedio\nFinAlgoritmo",
+            "error": "indice_inicio_incorrecto",
+            "retroalimentacion": "❌ Los arreglos en PSeInt comienzan en 0. Usa `desde 0 hasta 4`."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Calcular la suma de los elementos pares de un arreglo",
+            "solucion_correcta_pseint": "Algoritmo SumaParesArreglo\n  Dimension numeros[10]\n  suma = 0\n  Para i desde 0 hasta 9 Hacer\n    Si numeros[i] % 2 = 0 Entonces\n      suma = suma + numeros[i]\n    FinSi\n  FinPara\n  Escribir suma\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "básica",
+        "tags": ["acumuladores", "iteracion"]
+      },
+      {
+        "id": 2,
+        "enunciado": "Encontrar el valor mínimo y máximo en un arreglo",
+        "solucion_correcta_pseint": "Algoritmo MinMaxArreglo\n  Dimension valores[N]\n  minimo = valores[0]\n  maximo = valores[0]\n  Para i desde 1 hasta N-1 Hacer\n    Si valores[i] < minimo Entonces\n      minimo = valores[i]\n    FinSi\n    Si valores[i] > maximo Entonces\n      maximo = valores[i]\n    FinSi\n  FinPara\n  Escribir 'Mínimo: ', minimo, ' Máximo: ', maximo\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "inicializar_con_primer_elemento",
+          "comparar_elementos",
+          "actualizar_min_max"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo MinMaxArreglo\n  Dimension valores[N]\n  minimo = 0\n  maximo = 0\n  Para i desde 0 hasta N-1 Hacer\n    Si valores[i] < minimo Entonces\n      minimo = valores[i]\n    FinSi\n    Si valores[i] > maximo Entonces\n      maximo = valores[i]\n    FinSi\n  FinPara\n  Escribir minimo, maximo\nFinAlgoritmo",
+            "error": "inicializacion_incorrecta",
+            "retroalimentacion": "❌ Inicializa `minimo` y `maximo` con el primer elemento del arreglo, no con 0."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Encontrar la posición del elemento más grande en un arreglo",
+            "solucion_correcta_pseint": "Algoritmo PosicionMaximo\n  Dimension arreglo[N]\n  pos_max = 0\n  Para i desde 1 hasta N-1 Hacer\n    Si arreglo[i] > arreglo[pos_max] Entonces\n      pos_max = i\n    FinSi\n  FinPara\n  Escribir 'Posición del máximo: ', pos_max\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["comparacion", "indices"]
+      },
+      {
+        "id": 3,
+        "enunciado": "Invertir el orden de los elementos en un arreglo",
+        "solucion_correcta_pseint": "Algoritmo InvertirArreglo\n  Dimension original[N], invertido[N]\n  // Copiar elementos en orden inverso\n  Para i desde 0 hasta N-1 Hacer\n    invertido[i] = original[N-1 - i]\n  FinPara\n  // Mostrar resultado\n  Para i desde 0 hasta N-1 Hacer\n    Escribir invertido[i]\n  FinPara\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "copiar_elementos_inversos",
+          "usar_indices_calculados"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo InvertirArreglo\n  Dimension arreglo[N]\n  Para i desde 0 hasta N-1 Hacer\n    temp = arreglo[i]\n    arreglo[i] = arreglo[N-1]\n    arreglo[N-1] = temp\n  FinPara\nFinAlgoritmo",
+            "error": "intercambio_incorrecto",
+            "retroalimentacion": "❌ Este código solo intercambia extremos. Usa un índice calculado: `arreglo[N-1 - i]`."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Rotar un arreglo a la derecha K posiciones",
+            "solucion_correcta_pseint": "Algoritmo RotarArreglo\n  Dimension arreglo[N], rotado[N]\n  Leer K\n  Para i desde 0 hasta N-1 Hacer\n    rotado[(i + K) % N] = arreglo[i]\n  FinPara\n  // Mostrar rotado\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["indices", "modulo"]
+      },
+      {
+        "id": 4,
+        "enunciado": "Sumar todos los elementos de un arreglo unidimensional",
+        "solucion_correcta_pseint": "Algoritmo SumarArreglo\n  Dimension arreglo[5]\n  suma = 0\n  Para i desde 0 hasta 4\n    suma = suma + arreglo[i]\n  FinPara\n  Escribir suma\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "inicializar_acumulador",
+          "iterar_sobre_arreglo",
+          "acumular_valores"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo SumarArreglo\n  Dimension arreglo[5]\n  suma = 0\n  Para i desde 1 hasta 5\n    suma = suma + arreglo[i]\n  FinPara\n  Escribir suma\nFinAlgoritmo",
+            "error": "indice_fuera_de_rango",
+            "retroalimentacion": "❌ Los índices del arreglo deben comenzar en 0 (ej: '0 hasta 4' para longitud 5)."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Calcular el producto de los elementos de un arreglo",
+            "solucion_correcta_pseint": "Algoritmo ProductoArreglo\n  Dimension arreglo[5]\n  producto = 1\n  Para i desde 0 hasta 4\n    producto = producto * arreglo[i]\n  FinPara\n  Escribir producto\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "básica",
+        "tags": ["acumuladores", "iteración"]
+      },
+      {
+        "id": 5,
+        "enunciado": "Multiplicar dos matrices cuadradas de 3x3",
+        "solucion_correcta_pseint": "Algoritmo MultiplicarMatrices\n  Dimension matrizA[3,3], matrizB[3,3], resultado[3,3]\n  // Llenar matrices (ejemplo simplificado)\n  Para i desde 0 hasta 2\n    Para j desde 0 hasta 2\n      resultado[i,j] = 0\n      Para k desde 0 hasta 2\n        resultado[i,j] = resultado[i,j] + (matrizA[i,k] * matrizB[k,j])\n      FinPara\n    FinPara\n  FinPara\n  // Imprimir resultado\n  Para i desde 0 hasta 2\n    Para j desde 0 hasta 2\n      Escribir Sin Saltar resultado[i,j], \" \"\n    FinPara\n    Escribir \"\"\n  FinPara\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "anidar_bucles_3_niveles",
+          "inicializar_matriz_resultado",
+          "aplicar_regla_multiplicacion_matricial"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo MultiplicarMatrices\n  Dimension matrizA[3,3], matrizB[3,3], resultado[3,3]\n  Para i desde 0 hasta 2\n    Para j desde 0 hasta 2\n      resultado[i,j] = matrizA[i,j] * matrizB[i,j]\n    FinPara\n  FinPara\nFinAlgoritmo",
+            "error": "multiplicacion_elemento_a_elemento",
+            "retroalimentacion": "❌ Esto multiplica elemento a elemento, no es multiplicación matricial. Usa un tercer bucle (k) para sumar los productos."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Sumar dos matrices de NxM",
+            "solucion_correcta_pseint": "Algoritmo SumarMatrices\n  Leer N, M\n  Dimension matrizA[N,M], matrizB[N,M], resultado[N,M]\n  Para i desde 0 hasta N-1\n    Para j desde 0 hasta M-1\n      resultado[i,j] = matrizA[i,j] + matrizB[i,j]\n    FinPara\n  FinPara\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "avanzada",
+        "tags": ["matrices", "bucles_anidados"]
+      },
+      {
+        "id": 6,
+        "enunciado": "Ordenar un arreglo de números usando el método de burbuja",
+        "solucion_correcta_pseint": "Algoritmo OrdenarBurbuja\n  Dimension arreglo[5]\n  // Llenar arreglo (ejemplo)\n  Para i desde 0 hasta 4\n    Leer arreglo[i]\n  FinPara\n  // Ordenar\n  Para i desde 0 hasta 3\n    Para j desde 0 hasta 3-i\n      Si arreglo[j] > arreglo[j+1] Entonces\n        temp = arreglo[j]\n        arreglo[j] = arreglo[j+1]\n        arreglo[j+1] = temp\n      FinSi\n    FinPara\n  FinPara\n  // Imprimir\n  Para i desde 0 hasta 4\n    Escribir arreglo[i]\n  FinPara\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "anidar_bucles",
+          "comparar_elementos_adyacentes",
+          "intercambiar_valores"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo OrdenarBurbuja\n  Dimension arreglo[5]\n  Para i desde 0 hasta 4\n    Para j desde 0 hasta 4\n      Si arreglo[j] > arreglo[j+1] Entonces\n        temp = arreglo[j]\n        arreglo[j] = arreglo[j+1]\n        arreglo[j+1] = temp\n      FinSi\n    FinPara\n  FinPara\nFinAlgoritmo",
+            "error": "indice_fuera_de_rango",
+            "retroalimentacion": "❌ En el bucle interno, 'j' debe ir hasta '3-i' para evitar desbordamientos."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Ordenar un arreglo en orden descendente",
+            "solucion_correcta_pseint": "Algoritmo BurbujaDescendente\n  Dimension arreglo[5]\n  // ... (similar al anterior, pero con '<' en la comparación)\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["ordenamiento", "algoritmos_clasicos"]
+      },
+      {
+        "id": 7,
+        "enunciado": "Invertir una cadena de texto (usando arreglos de caracteres)",
+        "solucion_correcta_pseint": "Algoritmo InvertirCadena\n  Leer cadena\n  longitud = Longitud(cadena)\n  Dimension caracteres[longitud], invertida[longitud]\n  // Convertir cadena a arreglo\n  Para i desde 0 hasta longitud-1\n    caracteres[i] = Subcadena(cadena, i, i)\n  FinPara\n  // Invertir\n  Para i desde 0 hasta longitud-1\n    invertida[i] = caracteres[longitud-1-i]\n  FinPara\n  // Unir y mostrar\n  cadena_invertida = \"\"\n  Para i desde 0 hasta longitud-1\n    cadena_invertida = cadena_invertida + invertida[i]\n  FinPara\n  Escribir cadena_invertida\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "manejar_arreglos_caracteres",
+          "copiar_en_orden_inverso",
+          "concatenar_caracteres"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo InvertirCadena\n  Leer cadena\n  longitud = Longitud(cadena)\n  Para i desde 0 hasta longitud-1\n    Escribir Sin Saltar Subcadena(cadena, longitud-1-i, longitud-1-i)\n  FinPara\nFinAlgoritmo",
+            "error": "no_almacenar_resultado",
+            "retroalimentacion": "❌ Aunque imprime la cadena invertida, no la almacena en una variable. ¿Cómo la usarías después?"
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Verificar si una cadena es palíndromo",
+            "solucion_correcta_pseint": "Algoritmo Palindromo\n  Leer cadena\n  // ... (usar lógica similar a invertir y comparar)\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["strings", "manipulacion_texto"]
+      }
+    ]
+  }

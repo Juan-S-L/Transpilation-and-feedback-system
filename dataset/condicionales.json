@@ -1,0 +1,81 @@
+{
+    "familia": "condicionales",
+    "descripcion": "Ejercicios donde la solución requiere el uso de estructuras condicionales (Si-Entonces-Sino, Según).",
+    "ejercicios": [
+      {
+        "id": 1,
+        "enunciado": "Determinar si un número es positivo, negativo o cero",
+        "solucion_correcta_pseint": "Algoritmo SignoNumero\n  Leer num\n  Si num > 0 Entonces\n    Escribir 'Positivo'\n  Sino\n    Si num < 0 Entonces\n      Escribir 'Negativo'\n    Sino\n      Escribir 'Cero'\n    FinSi\n  FinSi\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "usar_comparadores",
+          "anidar_condicionales",
+          "cubrir_todos_casos"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo SignoNumero\n  Leer num\n  Si num > 0 Entonces\n    Escribir 'Positivo'\n  Sino\n    Escribir 'Negativo'\n  FinSi\nFinAlgoritmo",
+            "error": "caso_cero_omitido",
+            "retroalimentacion": "❌ Faltó considerar el caso en que el número sea cero. Usa condicionales anidadas para cubrirlo."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Determinar si un número es múltiplo de 3 y 5",
+            "solucion_correcta_pseint": "Algoritmo Multiplo3y5\n  Leer num\n  Si num % 3 = 0 Y num % 5 = 0 Entonces\n    Escribir 'Es múltiplo de 3 y 5'\n  Sino\n    Escribir 'No cumple'\n  FinSi\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "básica",
+        "tags": ["anidamiento", "operadores_logicos"]
+      },
+      {
+        "id": 2,
+        "enunciado": "Clasificar un carácter como vocal, consonante o otro",
+        "solucion_correcta_pseint": "Algoritmo ClasificarCaracter\n  Leer caracter\n  Si caracter = 'a' O caracter = 'e' O caracter = 'i' O caracter = 'o' O caracter = 'u' Entonces\n    Escribir 'Vocal'\n  Sino\n    Si (caracter >= 'a' Y caracter <= 'z') Entonces\n      Escribir 'Consonante'\n    Sino\n      Escribir 'No es letra'\n    FinSi\n  FinSi\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "usar_operadores_logicos",
+          "comparar_caracteres",
+          "manejar_rangos"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo ClasificarCaracter\n  Leer caracter\n  Si caracter = 'a' O 'e' O 'i' O 'o' O 'u' Entonces\n    Escribir 'Vocal'\n  FinSi\nFinAlgoritmo",
+            "error": "sintaxis_incorrecta",
+            "retroalimentacion": "❌ Cada comparación debe ser explícita: `caracter = 'a' O caracter = 'e'...`."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Determinar si un carácter es una letra mayúscula",
+            "solucion_correcta_pseint": "Algoritmo EsMayuscula\n  Leer caracter\n  Si caracter >= 'A' Y caracter <= 'Z' Entonces\n    Escribir 'Es mayúscula'\n  Sino\n    Escribir 'No es mayúscula'\n  FinSi\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["caracteres", "rangos"]
+      },
+      {
+        "id": 3,
+        "enunciado": "Calcular el descuento aplicable a una compra según el monto",
+        "solucion_correcta_pseint": "Algoritmo CalcularDescuento\n  Leer monto\n  Según monto Hacer\n    Caso monto < 100:\n      descuento = 0\n    Caso monto >= 100 Y monto < 500:\n      descuento = 0.1 * monto\n    Caso monto >= 500:\n      descuento = 0.2 * monto\n  FinSegún\n  Escribir 'Descuento: ', descuento\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "usar_segun",
+          "definir_rangos",
+          "calcular_porcentaje"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo CalcularDescuento\n  Leer monto\n  Si monto < 100 Entonces\n    descuento = 0\n  FinSi\n  Si monto >= 100 Entonces\n    descuento = 0.1 * monto\n  FinSi\n  Si monto >= 500 Entonces\n    descuento = 0.2 * monto\n  FinSi\n  Escribir descuento\nFinAlgoritmo",
+            "error": "condiciones_solapadas",
+            "retroalimentacion": "❌ Las condiciones se solapan. Usa `Según` o anida correctamente los `Si`."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Aplicar impuestos según el tipo de producto (A: 10%, B: 15%, C: 20%)",
+            "solucion_correcta_pseint": "Algoritmo CalcularImpuesto\n  Leer tipo, monto\n  Según tipo Hacer\n    Caso 'A':\n      impuesto = 0.1 * monto\n    Caso 'B':\n      impuesto = 0.15 * monto\n    Caso 'C':\n      impuesto = 0.2 * monto\n    Otro Caso:\n      impuesto = 0\n  FinSegún\n  Escribir 'Impuesto: ', impuesto\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["segun", "porcentajes"]
+      }
+    ]
+  }

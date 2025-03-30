@@ -1,0 +1,82 @@
+{
+    "familia": "bucles",
+    "descripcion": "Ejercicios donde la solución requiere el uso de estructuras iterativas (Para/Mientras).",
+    "ejercicios": [
+      {
+        "id": 1,
+        "enunciado": "Imprimir los primeros N números pares",
+        "solucion_correcta_pseint": "Algoritmo NumerosPares\n  Leer N\n  contador = 0\n  i = 1\n  Mientras contador < N Hacer\n    Si i % 2 = 0 Entonces\n      Escribir i\n      contador = contador + 1\n    FinSi\n    i = i + 1\n  FinMientras\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "inicializar_contador",
+          "usar_bucle_mientras",
+          "condicion_paridad",
+          "actualizar_contador"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo NumerosPares\n  Leer N\n  Para i desde 1 hasta N\n    Si i % 2 = 0 Entonces\n      Escribir i\n    FinSi\n  FinPara\nFinAlgoritmo",
+            "error": "bucle_para_inadecuado",
+            "retroalimentacion": "❌ Usar 'Para' aquí imprime números pares entre 1 y N, no los primeros N pares. Revisa la lógica del enunciado."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Imprimir los primeros N números impares",
+            "solucion_correcta_pseint": "Algoritmo NumerosImpares\n  Leer N\n  contador = 0\n  i = 1\n  Mientras contador < N Hacer\n    Si i % 2 <> 0 Entonces\n      Escribir i\n      contador = contador + 1\n    FinSi\n    i = i + 1\n  FinMientras\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "básica",
+        "tags": ["condicionales", "contador"]
+      },
+      {
+        "id": 2,
+        "enunciado": "Calcular la suma de los dígitos de un número entero positivo",
+        "solucion_correcta_pseint": "Algoritmo SumaDigitos\n  Leer numero\n  suma = 0\n  Mientras numero > 0 Hacer\n    digito = numero % 10\n    suma = suma + digito\n    numero = trunc(numero / 10)\n  FinMientras\n  Escribir suma\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "usar_operador_modulo",
+          "truncar_division",
+          "actualizar_numero"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo SumaDigitos\n  Leer numero\n  suma = 0\n  Mientras numero > 0 Hacer\n    digito = numero / 10\n    suma = suma + digito\n    numero = numero - digito\n  FinMientras\n  Escribir suma\nFinAlgoritmo",
+            "error": "operacion_incorrecta",
+            "retroalimentacion": "❌ Para extraer dígitos, usa `numero % 10` y `trunc(numero / 10)`, no resta."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Contar la cantidad de dígitos de un número",
+            "solucion_correcta_pseint": "Algoritmo ContarDigitos\n  Leer numero\n  contador = 0\n  Mientras numero > 0 Hacer\n    numero = trunc(numero / 10)\n    contador = contador + 1\n  FinMientras\n  Escribir contador\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["modulo", "truncamiento"]
+      },
+      {
+        "id": 3,
+        "enunciado": "Imprimir un triángulo de asteriscos de altura N",
+        "solucion_correcta_pseint": "Algoritmo TrianguloAsteriscos\n  Leer N\n  Para i desde 1 hasta N Hacer\n    Para j desde 1 hasta i Hacer\n      Escribir Sin Saltar \"*\"\n    FinPara\n    Escribir \"\"\n  FinPara\nFinAlgoritmo",
+        "reglas_abstractas": [
+          "anidar_bucles",
+          "controlar_filas_columnas",
+          "usar_escribir_sin_saltar"
+        ],
+        "errores_comunes": [
+          {
+            "codigo_incorrecto": "Algoritmo TrianguloAsteriscos\n  Leer N\n  Para i desde 1 hasta N Hacer\n    Escribir \"*\"\n  FinPara\nFinAlgoritmo",
+            "error": "falta_anidacion",
+            "retroalimentacion": "❌ Cada fila debe tener una cantidad de asteriscos igual a su número de línea. Usa un bucle anidado."
+          }
+        ],
+        "variantes": [
+          {
+            "enunciado": "Imprimir un triángulo invertido de asteriscos",
+            "solucion_correcta_pseint": "Algoritmo TrianguloInvertido\n  Leer N\n  Para i desde N hasta 1 Con Paso -1 Hacer\n    Para j desde 1 hasta i Hacer\n      Escribir Sin Saltar \"*\"\n    FinPara\n    Escribir \"\"\n  FinPara\nFinAlgoritmo"
+          }
+        ],
+        "dificultad": "intermedia",
+        "tags": ["bucles_anidados", "patrones"]
+      }
+    ]
+  }
